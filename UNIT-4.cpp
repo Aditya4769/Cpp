@@ -140,7 +140,7 @@ int main(){
 } */
 
 
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class abc{
     int x,y;
@@ -163,4 +163,30 @@ int main(){
     a1.display();
     operator -(a1);
     a1.display();
+}*/
+
+
+/*#include<iostream>
+using namespace std;
+class Number{
+	int x;
+	public:
+		Number(int n){
+			x = n;
+		}
+		void operator++(int){
+			cout<<"\nPostfix increment: ";
+			cout<<x++;
+		}
+		friend void operator--(Number,int);
+};
+void operator--(Number obj1,int){
+	cout<<"\nPostfix decrement:";
+	cout<<obj1.x--;
 }
+int main(){
+	Number N1(10);
+	N1++;
+	N1--;
+	
+}*/
