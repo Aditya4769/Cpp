@@ -251,3 +251,121 @@ int main(){
 
 
 
+
+/*#include<iostream>
+using namespace std;
+class demo{
+	int a;
+	int b;
+	public:
+		void get(int a1, int b1){
+			a=a1;
+			b=b1;
+		}
+		void operator +(int d2){
+			cout<<a+d2<<" "<<b+d2<<endl;
+		}
+};
+int main(){
+	demo d,d1;
+	d.get(10,40);
+	d1.get(20,50);
+	d.operator +(10);
+	d1.operator +(10);
+	return 0;
+}*/
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class demo{
+    private:
+        int d,m,y;
+    public:
+        demo(int dd,int mm, int yy){
+            d=dd;
+            m=mm;
+            y=yy;
+        }
+        void show(){
+            cout<<d<<"/"<<m<<"/"<<y<<endl;
+        }
+        int operator == (demo&);
+        
+};
+int demo::operator==(demo &d2){
+    if((y==d2.y)&&(d==d2.d)&&(m==d2.m)){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+
+}
+int main(){
+    demo d1(10,12,2005);
+    demo d2(10,12,2005);
+    d1.show();
+    d2.show();
+    if(d1==d2){
+        cout<<"d1 and d2 are equal.";
+    }
+    else{
+        cout<<"d1 and d2 are not equal";
+    }
+}*/
+
+
+/*#include<iostream>
+#include<cstring>
+using namespace std;
+class abc{
+	char name[20];
+	public:
+		void get(){
+			cin>>name;
+		}
+		void operator <(abc &a){
+			if(strcmp(name,a.name)==0){
+				cout<<"It is equal";
+				}
+			else
+				{
+					cout<<"Not equal";
+				}
+		}
+};
+int main(){
+	abc obj,obj1;
+	obj.get();
+	obj1.get();	
+	obj<obj1;
+	return 0;
+}*/
+
+
+
+
+#include<iostream>
+using namespace std;
+class demo{
+	int a;
+	int b;
+	public:
+		void get(int a1,int b1){
+			a=a1;
+			b=b1;
+		}
+		friend void operator +(demo&,demo&);
+};
+void operator +(demo &d2,demo &d3){
+	cout<<d2.a+d3.a<<" "<<d2.b+d3.b<<endl;
+}
+int main(){
+	demo d,d1;
+	d.get(10,40);
+	d1.get(20,50);
+	operator +(d,d1);
+}
