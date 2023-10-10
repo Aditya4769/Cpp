@@ -348,7 +348,7 @@ int main(){
 
 
 
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class demo{
 	int a;
@@ -368,4 +368,283 @@ int main(){
 	d.get(10,40);
 	d1.get(20,50);
 	operator +(d,d1);
+}*/
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class logical{
+	int x;
+	public:
+	logical(){
+		x=0;
+	}
+	logical(int a){
+		x=a;
+	}
+	logical operator &&(logical o){
+		return(x&&o.x);
+	}
+	friend bool operator ||(logical o1,logical o2);
+};
+bool operator ||(logical o1,logical o2){
+	return(o1.x||o2.x);
+}
+int main(){
+	logical o1(2),o2(0);
+	int x=o1&&o2;
+	cout<<x<<endl;
+	int y=o1||o2;
+	cout<<endl<<y;
+	return 0;
+}*/
+
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class complex{
+	int real,img;
+	public:
+		void get(){
+			cout<<"Enter real no: ";
+			cin>>real;
+			cout<<"Enter imaginary no: ";
+			cin>>img;
+		}
+		void display(){
+			cout<<real<<"+i"<<img;
+		}
+		friend complex operator +(int &a,complex &c);
+};
+complex operator +(int &a,complex &c){
+	
+}*/
+
+
+
+
+//___________________SINGLE INHERITENCE_________________
+
+
+/*#include<iostream>
+#include<string.h>
+using namespace std;
+class student{
+	private:
+		int roll_no;
+		protected:
+			char section[10];
+		public:
+			void get_rno(){
+				cout<<"Enter the roll number: ";
+				cin>>roll_no;
+			}
+			void show_rno(){
+				cout<<"\n Roll no: "<<roll_no;
+			}
+			
+};
+class result:protected student{
+	private:
+		float fees;
+	public:
+		void get_data(){
+			get_rno();
+			cout<<"\n Enter fees: ";
+			cin>>fees;
+			cout<<"\n Enter Section: ";
+			cin>>section;
+		}
+		void display(){
+			show_rno();
+			cout<<"\nFees: "<<fees;
+			cout<<"\nSection: "<<section;
+		}
+		
+};
+int main(){
+	result obj;
+	obj.get_data();
+	obj.display();
+}*/
+
+
+
+
+
+/*#include<iostream>
+#include<string.h>
+using namespace std;
+class student{
+	private:
+		int roll_no;
+		protected:
+			char section[10];
+		public:
+			void get_rno(){
+				cout<<"Enter the roll number: ";
+				cin>>roll_no;
+			}
+			void show_rno(){
+				cout<<"\n Roll no: "<<roll_no;
+			}
+			
+};
+class result:public student{
+	private:
+		float fees;
+	public:
+		void get_data(){
+			
+			cout<<"\n Enter fees: ";
+			cin>>fees;
+			cout<<"\n Enter Section: ";
+			cin>>section;
+		}
+		void display(){
+			
+			cout<<"\nFees: "<<fees;
+			cout<<"\nSection: "<<section;
+		}
+		
+};
+int main(){
+	result obj;
+	obj.get_rno();
+	obj.get_data();
+	obj.show_rno();
+	obj.display();
+	
+}*/
+
+
+
+
+
+/*#include<iostream>
+#include<string.h>
+using namespace std;
+class student{
+	private:
+		int roll_no;
+		protected:
+			char section[10];
+		public:
+			void get_rno(){
+				cout<<"Enter the roll number: ";
+				cin>>roll_no;
+			}
+			void show_rno(){
+				cout<<"\n Roll no: "<<roll_no;
+			}
+			
+};
+class result:private student{
+	private:
+		float fees;
+	public:
+		void get_data(){
+			get_rno();
+			cout<<"\n Enter fees: ";
+			cin>>fees;
+			cout<<"\n Enter Section: ";
+			cin>>section;
+		}
+		void display(){
+			show_rno();
+			cout<<"\nFees: "<<fees;
+			cout<<"\nSection: "<<section;
+		}
+		
+};
+int main(){
+	result obj;
+	obj.get_data();
+	obj.display();
+	
+}*/
+
+
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class abc{
+	protected:
+		int a;
+	public:
+		void get(){
+			cout<<"Enter first Number: ";
+			cin>>a;
+		}
+	
+};
+class xyz:public abc{
+	protected:
+		int b;
+	public:
+		void add(){
+			get();
+			cout<<"\Enter Second number: ";
+			cin>>b;
+			
+			cout<<"\nSum of Both Number is: "<<a+b<<endl;
+		}
+};
+int main(){
+	xyz obj;
+	obj.add();
+}*/
+
+
+
+
+
+
+//_____________MULTI INHERITENCE________________
+
+
+#include<iostream>
+using namespace std;
+class abc{
+	protected:
+		int a;
+	public:
+		void get(){
+			cout<<"Enter first Number: ";
+			cin>>a;
+		}
+	
+};
+class xyz:public abc{
+	protected:
+		int b;
+	public:
+		void get_b(){
+			get();
+			cout<<"\Enter Second number: ";
+			cin>>b;
+	}
+};
+class pqr:public xyz{
+	int c;
+	public:
+		void get_c(){
+			get_b();
+			cout<<"Enter Third Number: ";
+			cin>>c;
+			cout<<"The sum of all number is: "<<a+b+c;
+			
+		}
+};
+int main(){
+	pqr obj;
+	obj.get_c();
 }
