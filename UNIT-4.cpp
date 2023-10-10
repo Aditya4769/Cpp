@@ -611,7 +611,7 @@ int main(){
 //_____________MULTI INHERITENCE________________
 
 
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class abc{
 	protected:
@@ -647,4 +647,85 @@ class pqr:public xyz{
 int main(){
 	pqr obj;
 	obj.get_c();
+}*/
+
+
+
+
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class abc{
+	protected:
+		int a;
+	public:
+		void get(){
+			cout<<"Enter first Number: ";
+			cin>>a;
+		}
+	
+};
+class xyz{
+	protected:
+		int b;
+	public:
+		void get_b(){
+			cout<<"\Enter Second number: ";
+			cin>>b;
+	}
+};
+class pqr:public xyz,public abc{
+	int c;
+	public:
+		void get_c(){
+			get();
+			get_b();
+			cout<<"Enter Third Number: ";
+			cin>>c;
+			cout<<"The sum of all number is: "<<a+b+c;
+			
+		}
+};
+int main(){
+	pqr obj;
+	obj.get_c();
+}*/
+
+
+
+
+
+
+
+#include<iostream>
+#include<cstring>
+using namespace std;
+class mamals{
+	public:
+		void display(){
+			cout<<"I am Mammal.";
+		}
+};
+class MarineAnimal{
+	public:
+		void display(){
+			cout<<"\nI am MarineAnimal.";
+		}
+};
+
+class BlueWhale:public mamals,public MarineAnimal{
+	public: 
+	void show(){
+		cout<<"\nBlueWhale"<<endl;
+		mamals::display();
+		MarineAnimal::display();
+	}
+};
+
+int main(){
+	BlueWhale obj;
+	obj.show();
 }
