@@ -608,7 +608,7 @@ int main(){
 
 
 
-//_____________MULTI INHERITENCE________________
+//_______________________________MULTI INHERITENCE__________________________________
 
 
 /*#include<iostream>
@@ -700,7 +700,7 @@ int main(){
 
 
 
-#include<iostream>
+/*#include<iostream>
 #include<cstring>
 using namespace std;
 class mamals{
@@ -728,4 +728,258 @@ class BlueWhale:public mamals,public MarineAnimal{
 int main(){
 	BlueWhale obj;
 	obj.show();
+}*/
+
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class b1{
+	public:
+		int x;
+		void get(){
+			cout<<"Enter The value of x: ";
+			cin>>x;
+		}
+};
+class b2{
+	public:
+		int y;
+		void get(){
+			cout<<"\nEnter The value of y: ";
+			cin>>y;
+		}
+};
+class d:public b1,public b2{
+	public:
+		void getdata(){
+			b1::get();
+			b2::get();
+			if(x>y){
+				cout<<"\nX is greater."<<endl;
+			}
+			else{
+				cout<<"y is greater.";
+			}
+					}
+};
+int main(){
+	d obj;
+	obj.getdata();
+}*/
+
+
+
+
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class base{
+	protected:
+		int x,y;
+	public:
+		void get(){
+			cout<<"Enter the first value: ";
+			cin>>x;
+			cout<<"Enter the second value: ";
+			cin>>y;
+		}
+};
+class add:public base{
+	public:
+		void sum(){
+			get();
+			cout<<"Addition of both the number is: "<<x+y<<endl;
+		}
+};
+class sub:public base{
+	public:
+		void subt(){
+			get();
+			cout<<"Subtraction of both the number is: "<<x-y<<endl;
+		}
+};
+class mul:public base{
+	public:
+		void mult(){
+			get();
+			cout<<"Multiplication of both the number is: "<<x*y<<endl;
+		}
+};
+
+int main(){
+	add a1;
+	sub s1;
+	mul m1;
+	a1.sum();
+	s1.subt();
+	m1.mult();
+	return 0;
+}*/
+
+
+
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class base{
+	protected:
+		int x;
+	public:
+		void get(){
+			cout<<"Enter the Number: ";
+			cin>>x;
+		}
+};
+class fac:public base{
+	public:
+		void fact(){
+			get();
+			int y=1;
+			while(x>0){
+				y=y*x;
+				x--;
+			}
+		cout<<"Factorial of the number is: "<<y<<endl;
+		}
+};
+class add:public base{
+	public:
+		void sum(){
+			get();
+			int sum=0,y;
+			while(x!=0){
+				y = x%10;
+				sum = sum+y;
+				x = x/10;
+			}
+			cout<<"Sum of the no of digit is: "<<sum;
+		}
+};
+int main(){
+	fac obj;
+	add obj1;
+	obj.fact();
+	obj1.sum();
+}*/
+
+
+
+//______________________________Hybrid Inheritance______________________________________
+
+/*#include<iostream>
+#include<cstring>
+using namespace std;
+class uni{
+	protected:
+		string x;
+	public:
+	void get(){
+		cout<<"Enter the university name: ";
+		getline(cin,x);
+	}
+};
+class dep:public uni{
+	protected:
+		string d;
+	public:
+		void get_d(){
+		get();
+		
+		cout<<"Enter the department name: ";
+		getline(cin,d);
+	}
+};
+class qual{
+	protected:
+		string y;
+	public:
+		void get_q(){
+			cout<<"Enter your qualification: ";
+			getline(cin,y);
+		}
+};
+class t:public dep,public qual{
+	public:
+	void get_t(){
+		get_d();
+		get_q();
+		string t;
+		cout<<"Enter the class teacher name: ";
+		getline(cin,t);
+		
+		cout<<endl<<"\nUniversity name is: "<<x<<endl;
+		cout<<"Your department is: "<<d<<endl;
+		cout<<"Qulaification are: "<<y<<endl;
+		cout<<"Your class teacher name is: "<<t<<endl;
+	}
+};
+int main(){
+	t obj;
+	obj.get_t();
+}*/
+
+
+
+
+
+
+
+//______________________Virtual inheritance or Viertual base class_______________________
+
+#include<iostream>
+using namespace std;
+class roll{
+	protected:
+		int roll;
+	public:
+		void get(){
+			cout<<"Enter Roll_No: ";
+			cin>>roll;
+		}
+};
+class marks:virtual public roll{
+	protected:
+		int mark1,mark2;
+	public:
+		void get_m(){
+			cout<<"Enter First Subject Number: ";
+			cin>>mark1;
+			cout<<"Enter Second Subject Number: ";
+			cin>>mark2;
+		}
+};
+class sport:public virtual roll{
+	protected:
+		char c[20];
+	public:
+		void get_s(){
+			cout<<"Enter Sport name which participated in sports day: ";
+			cin>>c;
+		}
+};
+class student:public sport,public marks{
+	public:
+		void get_st(){
+			get();
+			get_m();
+			get_s();
+			cout<<endl<<"\nRollNo of the student is: "<<roll<<endl;
+			cout<<"Marks of subject 1 is: "<<mark1<<endl;
+			cout<<"Marks of subject 2 is: "<<mark2<<endl;
+			cout<<"Total marks student got : "<<mark1+mark2<<endl;
+			cout<<"Sport which student participate in previous sports day: "<<c<<endl;
+		}
+};
+int main(){
+	student obj;
+	obj.get_st();
 }
