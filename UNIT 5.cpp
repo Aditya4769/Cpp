@@ -84,3 +84,36 @@ int main(){
 		cout<<"\nMemory deallocated";
 	}
 }*/
+
+
+
+
+/*#include<iostream>
+#include<stdlib.h>
+using namespace std;
+int main(){
+	int *arr;
+	int size;
+	int sum=0;
+	cout<<"Enter the size of integer array;";
+	cin>>size;
+	cout<<"\nCreating an array of size"<<size;
+	arr=new int[size];
+	if(arr==NULL){
+		cout<<"Problem in memory allocation.";
+		exit(1);
+	}
+	else{
+		cout<<"Dynamic allocation of memory for array is successful"<<endl;
+		for(int i=0;i<size;i++){
+			
+			cin>>*(arr+i);
+		}
+		for(int i=0;i<size;i++){
+			sum = sum+*(arr+i);
+		}
+		cout<<"Sum of the array elements: "<<sum;
+		delete[] arr;
+		cout<<"\nMemory deallocated";
+	}
+}*/
