@@ -315,7 +315,7 @@ int main(){
 
 
 
-#include<iostream>
+/*#include<iostream>
 #include<string.h>
 using namespace std;
 class string1{
@@ -341,4 +341,48 @@ int main(){
 	cout<<"s1: ";
 	s1.display();
 	return 0;
+	}*/
+	
+	
+	
+	
+
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+class Employee{
+	int id;
+	float salary;
+	public:
+		void input(){
+			cout<<"Enter Id: ";
+			cin>>id;
+			cout<<"\nEnter Salary: ";
+			cin>>salary;
+		}
+		void display(){
+			cout<<"ID: "<<id<<" "<<"Salary: "<<salary;
+		}
+};
+int main(){
+	int n;
+	cout<<"\nEnter number of employee: ";
+	cin>>n;
+	Employee *p = new Employee[n];
+	Employee *d=p;
+	Employee *flag = p;
+	if(p=NULL){
+		cout<<"\nMemory allocation failure";
+		exit(1);
 	}
+	for(int i =0;i<n;i++){
+		p->input();
+		p++;
+	}
+	for(int i=0;i<n;i++){
+		d->display();
+		d++;
+			
+		}
+		delete[] flag;
+}
