@@ -347,7 +347,7 @@ int main(){
 	
 	
 
-#include<iostream>
+/*#include<iostream>
 #include<stdlib.h>
 using namespace std;
 class Employee{
@@ -385,4 +385,402 @@ int main(){
 			
 		}
 		delete[] flag;
+}*/
+
+
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class base{
+	public:
+		base(){
+			cout<<"Constructing base."<<endl;
+		}
+		virtual ~base(){
+			cout<<"Destructing base."<<endl;
+		}
+};
+class derived:public base{
+	public:
+	derived(){
+		cout<<"Constructing derived."<<endl;
+	}
+	~derived(){
+		cout<<"Destructing derived."<<endl;
+	}
+};
+int main(){
+	base *b = new derived;
+	delete b;
+	return 0;
+}*/
+
+
+
+
+
+
+
+
+
+//______________________FUNCTION OVERLOADING_____________________________
+/*#include<iostream>
+using namespace std;
+class overloading{
+	public:
+		int area(int side){
+			return (side*side);
+			
+		}
+		int area(int length,int width){
+			return (length*width);
+		}
+		float area(float radius){
+			return (3.14*radius*radius);
+		}
+		
+};
+int main(){
+	overloading obj1;
+	int square,rectangle;
+	float circle;
+	square=obj1.area(5);
+	cout<<"Area of square is: "<<square;
+	rectangle=obj1.area(5*4);
+	cout<<"\nArea of Reactangle is: "<<rectangle;
+	circle = obj1.area(3.4f);
+	cout<<"\nArea of circle is: "<<circle;
+}*/
+
+
+
+
+
+
+//__________________RUNTIME POLYMORPHISM_________________________
+/*#include<iostream>
+using namespace std;
+class BC{
+	public:
+		void printBC(){
+			cout<<"Printing message in base class"<<endl;
+		}
+		void virtual show(){
+			cout<<"Show() of base class\n"<<endl;
+		}
+		
+};
+class DC:public BC{
+	public:
+		void printDC(){
+			cout<<"\nPrinting message in Derived class"<<endl;
+		}
+		void show(){
+			cout<<"Show() of derived class";
+		}
+};
+int main(){
+	BC *bptr;
+	BC base;
+	bptr = &base;
+	cout<<"bptr points to base of the object\n";
+	bptr->show();
+	DC derived;
+	bptr = &derived;
+	cout<<"bptr now points to derived objects\n";
+	bptr->show();
+}*/
+
+
+
+
+
+//____________________TYPE CASTING_____________________
+/*#include<iostream>
+using namespace std;
+class BC{
+	public:
+		void printBC(){
+			cout<<"Printing message in base class"<<endl;
+		}
+		void show(){
+			cout<<"Show() of base class\n"<<endl;
+		}
+		
+};
+class DC:public BC{
+	public:
+		void printDC(){
+			cout<<"\nPrinting message in Derived class"<<endl;
+		}
+		void show(){
+			cout<<"Show() of derived class";
+		}
+};
+int main(){
+	BC *bptr;
+	BC base;
+
+	DC derived;
+
+	
+	DC *dptr;
+	dptr = &derived;
+	cout<<"dptr is derived type pointer\n";
+	dptr->show();
+	dptr->printDC();
+	cout<<"using ((DC*)bptr)\n";
+	((DC*)bptr)->show();
+	((DC*)bptr)->printDC();
+}*/
+
+
+
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class add{
+	int a;
+	int b;
+	public:
+		void virtual s(){
+			cout<<"Enter First Value: ";
+			cin>>a;
+			cout<<"\nEnter Second Value: ";
+			cin>>b;
+		}
+		void virtual sum(){
+			cout<<"\nAddition of both number is: "<<a+b<<endl;
+			cout<<"______________________________________________________"<<endl;
+		}
+};
+class ad:public add{
+	int a;
+	int b;
+	public:
+		void s(){
+			cout<<"\nEnter First Value: ";
+			cin>>a;
+			cout<<"\nEnter Second Value: ";
+			cin>>b;
+		}
+		void sum(){
+			cout<<"\nAddition of both number is: "<<a+b<<endl;
+		}
+};
+int main(){
+	add *p;
+	add base;
+	p = &base;
+	p->s();
+	p->sum();
+	ad derived;
+	p = &derived;
+	p->s();
+	p->sum();
+}*/
+
+
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class shape{
+	protected:
+		double a,b;
+	public:
+		void read(){
+			cout<<"Enter First Value: ";
+			cin>>a;
+			cout<<"\nEnter Second Value: ";
+			cin>>b;
+		}
+		void virtual cal_area(){
+			cout<<"This is Base Class Calculating area"<<endl;
+		}
+};
+
+class rectangle:public shape{
+	public:
+		void cal_area(){
+			double area=a*b;
+			cout<<"\nArea of Rectangle is: "<<area<<endl;
+		}
+		
+};
+class triangle:public shape{
+	public:
+		void cal_area(){
+			double area=(a*b)/2;
+			cout<<"\nArea of triangle is: "<<area<<endl;
+		}
+};
+int main(){
+	shape b,*p;
+	p=&b;
+	p->cal_area();
+	rectangle d;
+	p=&d;
+	p->read();
+	p->cal_area();
+	triangle d1;
+	p=&d1;
+	p->read();
+	p->cal_area();
+}*/
+
+
+
+
+
+
+
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class employe{
+	protected:
+		int x;
+	public:
+		void read(){
+			cout<<"Enter Your Salary according to per day: ";
+			cin>>x;
+
+		}
+		void virtual salary(){
+			cout<<"This is Base Class Calculating Salary"<<endl;
+		}
+};
+
+class permanent:public employe{
+	public:
+		void salary(){
+			
+			cout<<"\nMonthly salary of permanent employee is: "<<x*30<<endl;
+		}
+		
+};
+class adhoc:public employe{
+	public:
+		void salary(){
+			
+			cout<<"\nMonthly Salary of adhoc is: "<<x*30<<endl;
+		}
+};
+int main(){
+	employe *p,b;
+	p=&b;
+	p->salary;
+	permanent d;
+	p=&d;
+	p->read;
+	p->salary;
+	adhoc d1;
+	p=&d1;
+	p->read;
+	p->salary
+}*/
+
+
+
+
+
+
+
+
+
+/*#include<iostream>
+using namespace std;
+class sample{
+	public:
+		virtual void example()=0;
+		void show(){
+			cout<<"This is sample abstract class"<<endl;
+		}
+};
+class derived1:public sample{
+	public:
+		void example(){
+			cout<<"C++";
+		}
+		
+};
+class derived2:public sample{
+	public:
+		void example(){
+			cout<<"\nDSA";
+		}
+};
+
+int main(){
+	sample *ptr;
+	derived1 d;
+	ptr=&d;
+	ptr->example();
+	ptr->show();
+	derived2 d1;
+	ptr=&d1;
+	ptr->example();
+	ptr->show();
+}*/
+
+
+
+
+
+
+
+#include<iostream>
+#include<cstring>
+using namespace std;
+class employe{
+	int id;
+	char name[10];
+	int salary;
+	employe *next;
+	public:
+		employe(){
+			next = NULL;
+		}
+		void get(){
+			cout<<"Enter ID of the employe: ";
+			cin>>id;
+			cout<<"Enter Name of the employe: ";
+			cin>>name;
+			cout<<"Enter the salary of the employe: ";
+			cin>>salary;
+		}
+		void link(employe *t){
+			next = t;
+		}
+		void print(){
+			employe *p=this;
+			while(p!=NULL){
+				cout<<"\nID: "<<p->id<<"\n"<<"Name: "<<p->name<<"\n"<<"Salary: "<<p->salary<<endl;
+					p=p->next;
+			}
+		}
+};
+
+int main(){
+	employe e,e1,e2,e3;
+	e.get();
+	e1.get();
+	e2.get();
+	e3.get();
+	e.link(&e1);
+	e1.link(&e2);
+	e2.link(&e3);
+	e.print();
 }
